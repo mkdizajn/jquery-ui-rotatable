@@ -146,7 +146,7 @@ $.widget("ui.rotatable", $.ui.mouse, {
 
         this._propagate("start", event);
 
-        $(document).bind('mousemove', this.listeners.rotateElement);
+        $(document).bind('mousemove touchmove', this.listeners.rotateElement);
         $(document).bind('mouseup touchend touchcancel', this.listeners.stopRotate);
 
         return false;
