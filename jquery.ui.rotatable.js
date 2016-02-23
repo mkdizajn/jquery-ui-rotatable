@@ -72,7 +72,7 @@ $.widget("ui.rotatable", $.ui.mouse, {
         }
 
         handle.draggable({ helper: 'clone', start: this.dragStart, handle: handle });
-        handle.bind('mousedown', this.listeners.startRotate);
+        handle.bind('mousedown touchstart', this.listeners.startRotate);
         handle.appendTo(this.element);
 
         if(this.options.angle != false) {
@@ -147,7 +147,7 @@ $.widget("ui.rotatable", $.ui.mouse, {
         this._propagate("start", event);
 
         $(document).bind('mousemove', this.listeners.rotateElement);
-        $(document).bind('mouseup', this.listeners.stopRotate);
+        $(document).bind('mouseup touchend touchcancel', this.listeners.stopRotate);
 
         return false;
     },
@@ -193,7 +193,7 @@ $.widget("ui.rotatable", $.ui.mouse, {
         }
 
         $(document).unbind('mousemove', this.listeners.rotateElement);
-        $(document).unbind('mouseup', this.listeners.stopRotate);
+        $(document).unbind('mouseup touchend touchcancel', this.listeners.stopRotate);
 
         this.elementStopAngle = this.elementCurrentAngle;
 
