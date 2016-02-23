@@ -192,7 +192,7 @@ $.widget("ui.rotatable", $.ui.mouse, {
             return;
         }
 
-        $(document).unbind('mousemove', this.listeners.rotateElement);
+        $(document).unbind('mousemove touchmove', this.listeners.rotateElement);
         $(document).unbind('mouseup touchend touchcancel', this.listeners.stopRotate);
 
         this.elementStopAngle = this.elementCurrentAngle;
